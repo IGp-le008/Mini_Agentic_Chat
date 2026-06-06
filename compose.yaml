@@ -1,0 +1,18 @@
+services:
+        app:
+                image: python:3.11
+                build:
+                        context: .
+                        dockerfile: Dockerfile
+                command:
+                        python main.py
+                env_file:
+                        - .env
+
+                stdin_open: true
+                tty: true                
+
+                labels:
+                        - "ktm_agent_label"
+
+                container_name: ktm_agent_container
